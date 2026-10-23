@@ -4,17 +4,17 @@
     { day: "Day 2", date: "2026-09-29", category: "SAP & BTP Fundamentals", topics: ["SAP Discovery Center", "SAP Business Accelerator Hub"] },
     { day: "Day 3", date: "2026-09-30", category: "SAP & BTP Fundamentals", topics: ["SAP Learning Hub", "SAP Help Portal", "SAP Community"] },
     { day: "Day 4", date: "2026-10-01", category: "Connectivity & Connectors", topics: ["Message protocols: SOAP, REST, IDOC, RFC, AMQP"] },
-    { day: "Day 5", date: "2026-10-05", category: "Revision & Assessment", topics: ["Introduction to SAP BTP", "Cloud Foundry", "Hands-on / Assessment"] },
+    { day: "Day 5", date: "2026-10-05", category: "SAP BTP Fundamentals", topics: ["Introduction to SAP BTP", "Cloud Foundry", "Create an SAP BTP trial account"] },
     { day: "Day 6", date: "2026-10-06", category: "Other", topics: ["Agentic AI"] },
     { day: "Day 7", date: "2026-10-07", category: "SAP Integration Suite", topics: ["Introduction to SAP Integration Suite", "Subscription and Activation"] },
     { day: "Day 8", date: "2026-10-08", category: "SAP Integration Suite", topics: ["Overview of SAP Cloud Integration", "XSLT Demo"] },
     { day: "Day 9", date: "2026-10-09", category: "Connectivity & Connectors", topics: ["Tools and Basic Concepts", "Cloud Connector", "CSV to XML Demo"] },
     { day: "Day 10", date: "2026-10-12", category: "Other", topics: ["Pre-packaged Content", "Calculator Demo", "Use of Postman"] },
-    { day: "Day 11", date: "2026-10-13", category: "Revision & Assessment", topics: ["Integration Process Steps", "Hands-on / Assessment"] },
-    { day: "Day 12", date: "2026-10-14", category: "SAP Integration Suite", topics: ["Integration Process Steps", "Parallel and Sequential Multicast Demo", "PGP and Mail Adapter Demo"] },
-    { day: "Day 13", date: "2026-10-15", category: "Connectivity & Connectors", topics: ["SOAP Connectivity", "OData Connectivity", "On-Premise and Cloud Connectivity"] },
-    { day: "Day 14", date: "2026-10-16", category: "Connectivity & Connectors", topics: ["SFTP Connectivity", "FTP Connectivity"] },
-    { day: "Day 15", date: "2026-10-22", category: "Connectivity & Connectors", topics: ["RFC Connectivity", "IDOC Connectivity"] },
+    { day: "Day 11", date: "2026-10-13", category: "SAP Integration Suite", topics: ["Integration Process Steps", "XSLT Mapping", "Multicast and Encryption", "Message Headers and Exchange Properties", "Local Process Calls, Simulation, and Splitters", "Groovy Scripts and REST APIs"] },
+    { day: "Day 12", date: "2026-10-14", category: "Connectivity & Connectors", topics: ["SAP Cloud Integration Connectivity Options", "SOAP and OData Adapters", "Mail, SFTP, and FTP Adapters", "SuccessFactors Adapter", "AMQP and Open Connectors", "RFC, IDoc, JMS, ProcessDirect, and Twitter Adapters"] },
+    { day: "Day 13", date: "2026-10-15", category: "SAP Integration Suite", topics: ["Security Material", "Keystore", "Connectivity Testing"] },
+    { day: "Day 14", date: "2026-10-16", category: "SAP Integration Suite", topics: ["Monitoring in the Web UI", "Troubleshooting", "Cloud Integration APIs and OData API", "Log Level Configuration", "Transport Management"] },
+    { day: "Day 15", date: "2026-10-22", category: "SAP API Management", topics: ["SAP API Management Overview", "API Concepts", "API Portal", "API Pre-Packaged Content"] },
     { day: "Day 16", date: "2026-10-23", category: "Revision & Assessment", topics: ["Revision", "Hands-on / Assessment"] },
     { day: "Day 17", date: "2026-10-26", category: "Assessment", topics: ["MCQ 1", "SuccessFactors Connectivity"] },
     { day: "Day 18", date: "2026-10-27", category: "Connectivity & Connectors", topics: ["AMQP Connectivity"] },
@@ -38,6 +38,20 @@
     { day: "Day 36", date: "2026-11-23", category: "Capstone Project", topics: ["Capstone Project"] }
   ];
 
+  window.SAP_BTP_STREAM_DATA = trainingData;
+  window.SAP_BTP_DAY_MODULES = Object.fromEntries(trainingData.map((entry, index) => {
+    const moduleId = `day-${index + 1}`;
+    return [moduleId, {
+      moduleId,
+      title: `${entry.day} · ${entry.category}`,
+      summary: entry.topics.join(' • '),
+      topics: entry.topics,
+      date: entry.date,
+      category: entry.category,
+      day: entry.day
+    }];
+  }));
+
   function escapeHTML(value) {
     return String(value).replace(/[&<>"']/g, (character) => ({
       "&": "&amp;",
@@ -56,22 +70,56 @@
     });
   }
 
-  function getCurrentDayIndex() {
-    const today = new Date();
-    const todayAtMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const currentIndex = trainingData.findIndex((item) => new Date(`${item.date}T00:00:00`) >= todayAtMidnight);
+  const indiaDateTimeFormatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23"
+  });
+
+  function getIndiaDateTime(date = new Date()) {
+    const parts = Object.fromEntries(indiaDateTimeFormatter.formatToParts(date)
+      .filter(({ type }) => ["year", "month", "day", "hour", "minute"].includes(type))
+      .map(({ type, value }) => [type, value]));
+
+    return {
+      date: `${parts.year}-${parts.month}-${parts.day}`,
+      minuteOfDay: Number(parts.hour) * 60 + Number(parts.minute)
+    };
+  }
+
+  function isMeetingWindowOpen(date = new Date()) {
+    const { minuteOfDay } = getIndiaDateTime(date);
+    return minuteOfDay >= 7 * 60 + 30 && minuteOfDay < 17 * 60 + 30;
+  }
+
+  function getCurrentDayIndex(date = new Date()) {
+    const today = getIndiaDateTime(date).date;
+    const currentIndex = trainingData.findIndex((item) => item.date >= today);
     return currentIndex >= 0 ? currentIndex : trainingData.length - 1;
   }
 
   let selectedDay = getCurrentDayIndex();
+  let meetingWindowTimer = null;
 
   function renderStreamMap(container) {
+    if (meetingWindowTimer) window.clearInterval(meetingWindowTimer);
     container.classList.add("stream-map-view");
     container.innerHTML = `
       <section class="map-heading" aria-labelledby="map-title">
         <p class="map-kicker">SAP BTP Integration Development</p>
         <h1 id="map-title">Stream Map</h1>
         <p class="map-intro" id="map-intro"></p>
+      </section>
+      <section class="assessment-panel" aria-labelledby="assessment-title">
+        <div class="assessment-panel-heading">
+          <p class="map-kicker">Important dates</p>
+          <h2 id="assessment-title">Assessments and capstone</h2>
+        </div>
+        ${document.getElementById("assessment-schedule-template").innerHTML}
       </section>
       <section class="map-stats" aria-label="Training summary">
         <div><strong id="map-total-days"></strong><span>Training days (capstone included)</span></div>
@@ -133,6 +181,7 @@
       const query = search.value.trim().toLocaleLowerCase();
       const chosenCategory = category.value;
       const currentDayIndex = getCurrentDayIndex();
+      const meetingWindowOpen = isMeetingWindowOpen();
       const visibleDays = trainingData.map((item, index) => ({ item, index })).filter(({ item }) => {
         const text = `${item.day} ${item.date} ${item.category} ${item.topics.join(" ")}`.toLocaleLowerCase();
         return (chosenCategory === "all" || item.category === chosenCategory) && (!query || text.includes(query));
@@ -141,7 +190,7 @@
       results.textContent = `${visibleDays.length} of ${trainingData.length} training days`;
       grid.innerHTML = visibleDays.length ? visibleDays.map(({ item, index }) => {
         const isCompleted = index < currentDayIndex;
-        const route = index < 4 ? `#day-${index + 1}` : "#stream-guide";
+        const route = `#day-${index + 1}`;
         return `
           <article class="map-day-card${index === selectedDay ? " is-selected" : ""}${isCompleted ? " is-complete" : ""}" data-day-index="${index}" aria-label="${escapeHTML(item.day)} training day">
             <div class="map-card-top">
@@ -154,12 +203,15 @@
             <div class="map-card-topics">${item.topics.map((topic) => `<span>${escapeHTML(topic)}</span>`).join("")}</div>
             <div class="map-card-actions">
               <a href="${route}" class="map-view-button" data-route="${route}">View</a>
+              ${index === currentDayIndex && meetingWindowOpen ? `<a href="https://teams.microsoft.com/meet/223687928940681?p=aAZIFaYB5va169p4l6" class="map-meeting-button" target="_blank" rel="noopener noreferrer" aria-label="Join ${escapeHTML(item.day)} meeting in Microsoft Teams" title="Join ${escapeHTML(item.day)} meeting in Microsoft Teams">Join meeting</a>` : ""}
             </div>
           </article>`;
       }).join("") : '<p class="map-empty">No training days match your search.</p>';
     }
 
     grid.addEventListener("click", (event) => {
+      if (event.target.closest(".map-meeting-button")) return;
+
       const viewButton = event.target.closest(".map-view-button");
       if (viewButton) {
         event.preventDefault();
@@ -178,6 +230,14 @@
     category.addEventListener("change", renderCards);
     renderSelectedDay();
     renderCards();
+    meetingWindowTimer = window.setInterval(() => {
+      if (window.location.hash !== "#stream-map") {
+        window.clearInterval(meetingWindowTimer);
+        meetingWindowTimer = null;
+        return;
+      }
+      renderCards();
+    }, 30_000);
   }
 
   window.renderStreamMap = renderStreamMap;

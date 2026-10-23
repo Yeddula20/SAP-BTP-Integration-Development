@@ -1,4 +1,4 @@
-> Editable website content is maintained in [stream-guide.md](stream-guide.md), [stream-details.md](stream-details.md), and the independent daily files [Day 1](day-wise/day-1/content.md), [Day 2](day-wise/day-2/content.md), [Day 3](day-wise/day-3/content.md), and [Day 4](day-wise/day-4/content.md). Put each day's screenshots in that day's `images/` folder using the filenames referenced in its markdown file. Day 4 image names are `image-1a.png`, `image-1b.png`, `image-1c.png`, and `image-2.png` through `image-6.png`. The content below is the original guide snapshot.
+> Editable website content is maintained in [stream-guide.md](stream-guide.md), [stream-details.md](stream-details.md), the daily files under `day-wise/`, and [Scenario-Based Examples](day-wise/scenario-examples/content.md). Days 11–36 have day-wise content pages linked from the site navigation. Put screenshots in the matching day's `images/` directory using the filenames referenced in its Markdown file; the new day-wise image folders are ready for the supplied assets. Day 27 uses `1.png`, `2.png`, `3a.png`, `3b.png`, and `4.png`–`6.png`; Day 29 uses `7.png`–`24.png` under their respective `images/` directories. Earlier image guidance: Day 11 uses `1.png`–`23.png`, Day 12 uses `1.png`–`40.png`, Day 14 uses `1.png`–`12.png`, Day 15 uses `1.png`–`8.png`, and scenario examples use `1.png`–`7.png`. Day 4 image names are `image-1a.png`, `image-1b.png`, `image-1c.png`, and `image-2.png`–`image-6.png`. Day 5 image names are `1.png`–`15.png`, `16a.png`, `16b.png`, `17.png`, `18a.png`–`18d.png`, and `19.png`–`27.png`, all under their matching `images/` directories. The content below is the original guide snapshot.
 
 <div class="landing-hero">
   <div class="hero-copy">
@@ -340,4 +340,3 @@ Understand your "changed" proficiency via continuous assessment and advance your
     <strong>Target Score: 60</strong>
   </div>
 </div>
-
