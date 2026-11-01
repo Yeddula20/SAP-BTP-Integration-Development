@@ -242,6 +242,16 @@
       <div class="assessment-popup-schedule"></div>
     </section>
   </div>
+  <a
+    class="resources-link-button"
+    href="https://drive.google.com/drive/folders/1g7T-iPi5TsYH0H79Vj8FP2GzWV2Y4GPS"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Open learning resources folder"
+    title="Learning resources"
+  >
+    <img src="assets/images/resources-link.png" alt="" />
+  </a>
   <script src="feedback-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <script src="feedback.js"></script>
@@ -871,6 +881,14 @@
         content.innerHTML = page.isModule
           ? `<div class="day-content-frame">${pageContent}</div>`
           : pageContent;
+        content.querySelectorAll('iframe[src*="youtube.com/embed"]').forEach((player) => {
+          const playerUrl = new URL(player.src);
+          playerUrl.searchParams.set('enablejsapi', '1');
+          if (window.location.protocol !== 'file:' && window.location.origin !== 'null') {
+            playerUrl.searchParams.set('origin', window.location.origin);
+          }
+          player.src = playerUrl.toString();
+        });
         if (page.pdfResource) {
           content.querySelector('.day-content-frame').insertAdjacentHTML(
             'beforeend',
@@ -1535,18 +1553,31 @@
   </script>
   <script>
     (function(w, d, s, botId) {
-      if (w.HelpJet && w.HelpJet.loaded) {
-        console.warn('HelpJet widget already loaded');
-        return;
+      var loaded = false;
+
+      function loadHelpJet() {
+        if (loaded || (w.HelpJet && w.HelpJet.loaded)) return;
+        loaded = true;
+
+        var js = d.createElement(s);
+        js.async = true;
+        js.src = 'https://app.helpjet.com/api/widget/loader.js?botId=' + botId;
+        js.onerror = function() {
+          loaded = false;
+          console.error('Failed to load HelpJet widget');
+        };
+        var fjs = d.getElementsByTagName(s)[0];
+        fjs.parentNode.insertBefore(js, fjs);
       }
-      var js = d.createElement(s);
-      js.async = true;
-      js.src = 'https://app.helpjet.com/api/widget/loader.js?botId=' + botId;
-      js.onerror = function() {
-        console.error('Failed to load HelpJet widget');
-      };
-      var fjs = d.getElementsByTagName(s)[0];
-      fjs.parentNode.insertBefore(js, fjs);
+
+      function syncHelpJet(user) {
+        if (user) loadHelpJet();
+      }
+
+      syncHelpJet(w.learningAccount && w.learningAccount.user);
+      w.addEventListener('learningauthchange', function(event) {
+        syncHelpJet(event.detail && event.detail.user);
+      });
     })(window, document, 'script', 'jh71mkfw9jxrw8nc273vt05cgd8g9gf1');
   </script>
 </body>

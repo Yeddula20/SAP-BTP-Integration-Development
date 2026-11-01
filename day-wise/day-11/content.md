@@ -49,15 +49,18 @@
 ## Unit 2: Creating First Integration Flow
 
 - Practice and learning activity: [Creating First Integration Flow](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24683&forceview=1)
+- <span class="iflow-download-row"><span class="iflow-download-title">HelloWorld iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/Helloworld.zip" download aria-label="Download HelloWorld iFlow" title="Download HelloWorld iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 3: XSLT Mapping
 
 - XSLT Mapping and its need: [SAP Help - XSLT Mapping](https://help.sap.com/saphelp_em900/helpdata/en/4b/f40f2fc0c33de4e10000000a42189e/content.htm?no_cache=true)
 - Watch video: [XSLT Mapping Demo](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24684)
+- <span class="iflow-download-row"><span class="iflow-download-title">XSLT Mapping iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/XSLT_Mapping.zip" download aria-label="Download XSLT Mapping iFlow" title="Download XSLT Mapping iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 4: Sequential and Parallel Multicast
 
 - Reference: [Sequential and Parallel Multicast](https://www.youtube.com/watch?v=ER414LzuWKk)
+- <span class="iflow-download-row"><span class="iflow-download-title">Sequential and Multicast iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/Seq_multi.zip" download aria-label="Download Sequential and Multicast iFlow" title="Download Sequential and Multicast iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 5.1: Encryption and Decryption in SAP Cloud Integration - Part 1
 
@@ -66,11 +69,13 @@
 ## Unit 5.2: Encryption and Decryption in SAP Cloud Integration - Part 2
 
 - Watch video: [Part 2](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24687)
+- <span class="iflow-download-row"><span class="iflow-download-title">Encryption and Decryption iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/Encryption_Decryption.zip" download aria-label="Download Encryption and Decryption iFlow" title="Download Encryption and Decryption iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 6: Message Header and Exchange Property
 
 - Content Modifier Overview: [Define Content Modifier](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/define-content-modifier)
 - Watch video: [Message Header and Exchange Property](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24688)
+- <span class="iflow-download-row"><span class="iflow-download-title">Message Header and Exchange Property iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/MessageHeader_ExchangeProperty.zip" download aria-label="Download Message Header and Exchange Property iFlow" title="Download Message Header and Exchange Property iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 7: Local Integration Process Call
 
@@ -83,6 +88,8 @@
 ## Unit 9: Splitters
 
 - Reference: [SAP Cloud Platform Integration - General Splitter](https://blogs.sap.com/2020/09/21/sap-cloud-platform-integration-general-splitter/)
+- <span class="iflow-download-row"><span class="iflow-download-title">General Splitter iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/General%20Splitter.zip" download aria-label="Download General Splitter iFlow" title="Download General Splitter iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
+- <span class="iflow-download-row"><span class="iflow-download-title">CSV to XML Splitter iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/CSVtoXML_Splitter.zip" download aria-label="Download CSV to XML Splitter iFlow" title="Download CSV to XML Splitter iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 10: Groovy Scripts Basics
 
@@ -96,6 +103,7 @@
 ## Unit 12: Creating a REST API under SAP Cloud Integration
 
 - Watch video: [REST API in SAP Cloud Integration](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24694&forceview=1)
+- <span class="iflow-download-row"><span class="iflow-download-title">REST API Web Shopping iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/WebShopping_RestAPI.zip" download aria-label="Download REST API Web Shopping iFlow" title="Download REST API Web Shopping iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ![Image 22: API First is the recommended approach](images/22.png)
 

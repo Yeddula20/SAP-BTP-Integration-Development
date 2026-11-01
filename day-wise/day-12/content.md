@@ -87,6 +87,7 @@
 ## Unit 2.1: SOAP Sender & Receiver Adapter - Part 1
 
 - Watch video: [SOAP Sender & Receiver Adapter Part 1](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24696)
+- <span class="iflow-download-row"><span class="iflow-download-title">SOAP to SOAP iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/SOAP_to_SOAP.zip" download aria-label="Download SOAP to SOAP iFlow" title="Download SOAP to SOAP iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 2.2: SOAP Sender & Receiver Adapter - Part 2
 
@@ -95,6 +96,7 @@
 ## Unit 3: OData Adapter - Internet
 
 - Watch video: [OData Adapter - Internet](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24698)
+- <span class="iflow-download-row"><span class="iflow-download-title">OData iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/OData.zip" download aria-label="Download OData iFlow" title="Download OData iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 4.1: OData OnPremise - Part 1
 
@@ -105,6 +107,7 @@
 
 - OData Adapter documentation: [OData Adapter](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/odata-adapter)
 - Watch video: [OData OnPremise Part 2](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24700)
+- <span class="iflow-download-row"><span class="iflow-download-title">On-Premise OData Service iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/OnPremise_ODataService.zip" download aria-label="Download On-Premise OData Service iFlow" title="Download On-Premise OData Service iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 5.1: Mail Adapter - Part 1
 
@@ -115,6 +118,7 @@
 
 - Mail Adapter documentation: [Mail Adapter](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/mail-adapter)
 - Watch video: [Mail Adapter Part 2](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24702)
+- <span class="iflow-download-row"><span class="iflow-download-title">Mail Adapter iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/Mail_Adapter.zip" download aria-label="Download Mail Adapter iFlow" title="Download Mail Adapter iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 6.1: SFTP & FTP Adapters - Part 1
 
@@ -125,6 +129,7 @@
 ## Unit 6.2: SFTP & FTP Adapters - Part 2
 
 - Watch video: [SFTP & FTP Adapters Part 2](https://studyatlkm.accenture.com/mod/h5pactivity/view.php?id=24704)
+- <span class="iflow-download-row"><span class="iflow-download-title">SFTP and FTP Adapter iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/SFTP_FTP_Adapter.zip" download aria-label="Download SFTP and FTP Adapter iFlow" title="Download SFTP and FTP Adapter iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 7.1: Create Record in SAP SuccessFactors - Part 1
 
@@ -171,13 +176,17 @@
 ## Unit 14: JMS Adapter
 
 - Hands-on tutorial: [JMS Adapter](https://studyatlkm.accenture.com/mod/securepdf/view.php?id=24714)
+- <span class="iflow-download-row"><span class="iflow-download-title">Java Message Service Demo iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/Java%20Message%20Service%20Demo.zip" download aria-label="Download Java Message Service Demo iFlow" title="Download Java Message Service Demo iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 15: ProcessDirect Adapter
 
 - ProcessDirect Adapter documentation: [ProcessDirect Adapter](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/processdirect-adapter)
 - Setup reference: [Using ProcessDirect Adapter Setup](https://community.sap.com/t5/technology-blog-posts-by-sap/processdirect-adapter/ba-p/13351290)
 - Hands-on tutorial: [ProcessDirect Hands-on](https://studyatlkm.accenture.com/mod/securepdf/view.php?id=24715)
+- <span class="iflow-download-row"><span class="iflow-download-title">ProcessDirect iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/ProcessDirect.zip" download aria-label="Download ProcessDirect iFlow" title="Download ProcessDirect iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
+- <span class="iflow-download-row"><span class="iflow-download-title">Client ProcessDirect iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/ClientProcessDirect.zip" download aria-label="Download Client ProcessDirect iFlow" title="Download Client ProcessDirect iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>
 
 ## Unit 16: Twitter Adapter
 
 - Resource: [Twitter Receiver Adapter](https://sapintegrationhub.blogspot.com/2019/05/twitter-receiver-adapter-in-scpi.html)
+- <span class="iflow-download-row"><span class="iflow-download-title">Twitter Adapter Demonstration iFlow</span><a class="iflow-download-button" href="day-wise/Iflows/Twitter%20Adapter%20Demonstration.zip" download aria-label="Download Twitter Adapter Demonstration iFlow" title="Download Twitter Adapter Demonstration iFlow">Download <span aria-hidden="true">&#8595;</span></a></span>

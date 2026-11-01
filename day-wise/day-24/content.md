@@ -2,6 +2,17 @@
 
 **Modules:** Module 13 and Module 14
 
+<div class="video-player-shell">
+  <iframe
+    src="https://www.youtube.com/embed/80rxo1QUhRg"
+    title="Day 24 Hands-on: Creating API, Products and Applying Policies"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+
 ## Module 13: SAP API Management - Develop Products and Applications
 
 ### Unit 1.1: Product Creation and Application Creation from API - Part 1
