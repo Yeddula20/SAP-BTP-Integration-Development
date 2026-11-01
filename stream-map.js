@@ -1,4 +1,10 @@
 (() => {
+  const meetingConfig = Object.freeze({
+    url: "https://teams.microsoft.com/meet/223687928940681?p=aAZIFaYB5va169p4l6",
+    startMinute: 7 * 60 + 30,
+    endMinute: 17 * 60 + 30
+  });
+
   const trainingData = [
     { day: "Day 1", date: "2026-09-28", category: "SAP & BTP Fundamentals", topics: ["SAP Overview"] },
     { day: "Day 2", date: "2026-09-29", category: "SAP & BTP Fundamentals", topics: ["SAP Discovery Center", "SAP Business Accelerator Hub"] },
@@ -39,6 +45,7 @@
   ];
 
   window.SAP_BTP_STREAM_DATA = trainingData;
+  window.SAP_BTP_MEETING_CONFIG = meetingConfig;
   window.SAP_BTP_DAY_MODULES = Object.fromEntries(trainingData.map((entry, index) => {
     const moduleId = `day-${index + 1}`;
     return [moduleId, {
@@ -93,8 +100,17 @@
 
   function isMeetingWindowOpen(date = new Date()) {
     const { minuteOfDay } = getIndiaDateTime(date);
-    return minuteOfDay >= 7 * 60 + 30 && minuteOfDay < 17 * 60 + 30;
+    return minuteOfDay >= meetingConfig.startMinute && minuteOfDay < meetingConfig.endMinute;
   }
+
+  window.SAP_BTP_MEETING_UTILS = Object.freeze({
+    getIndiaDateTime,
+    isMeetingWindowOpen,
+    isScheduledMeetingDay(date = new Date()) {
+      const { date: today } = getIndiaDateTime(date);
+      return trainingData.some((item) => item.date === today);
+    }
+  });
 
   function getCurrentDayIndex(date = new Date()) {
     const today = getIndiaDateTime(date).date;
@@ -203,7 +219,7 @@
             <div class="map-card-topics">${item.topics.map((topic) => `<span>${escapeHTML(topic)}</span>`).join("")}</div>
             <div class="map-card-actions">
               <a href="${route}" class="map-view-button" data-route="${route}">View</a>
-              ${index === currentDayIndex && meetingWindowOpen ? `<a href="https://teams.microsoft.com/meet/223687928940681?p=aAZIFaYB5va169p4l6" class="map-meeting-button" target="_blank" rel="noopener noreferrer" aria-label="Join ${escapeHTML(item.day)} meeting in Microsoft Teams" title="Join ${escapeHTML(item.day)} meeting in Microsoft Teams">Join meeting</a>` : ""}
+              ${index === currentDayIndex && meetingWindowOpen && window.SAP_BTP_MEETING_UTILS.isScheduledMeetingDay() ? `<a href="${meetingConfig.url}" class="map-meeting-button" target="_blank" rel="noopener noreferrer" aria-label="Join ${escapeHTML(item.day)} meeting in Microsoft Teams" title="Join ${escapeHTML(item.day)} meeting in Microsoft Teams">Join meeting</a>` : ""}
             </div>
           </article>`;
       }).join("") : '<p class="map-empty">No training days match your search.</p>';
