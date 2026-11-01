@@ -1152,6 +1152,76 @@ body[data-theme='dark'] .day-content-frame {
   line-height: 1.08;
 }
 
+.video-player-shell {
+  width: 100%;
+  margin: 0 0 32px;
+  overflow: hidden;
+  border: 1px solid rgba(23, 87, 126, 0.18);
+  border-radius: 18px;
+  background: #000;
+  box-shadow: 0 16px 36px rgba(23, 87, 126, 0.16);
+  aspect-ratio: 16 / 9;
+}
+
+.video-player-shell iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.iflow-download-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 10px 0;
+  padding: 8px 10px 8px 14px;
+  border: 1px solid rgba(23, 87, 126, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.iflow-download-title {
+  min-width: 0;
+  font-weight: 600;
+}
+
+.day-content-frame a.iflow-download-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: transparent;
+  background-color: transparent;
+  background-image: url("assets/images/iflow-download.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-decoration: none;
+}
+
+.day-content-frame a.iflow-download-button:hover {
+  color: transparent;
+  background-color: transparent;
+  transform: translateY(-1px);
+}
+
+.day-content-frame a.iflow-download-button span[aria-hidden='true'] {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .iflow-download-row {
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
 .site-footer {
   margin-left: 264px;
   padding: 24px clamp(24px, 5vw, 64px);
@@ -1762,5 +1832,59 @@ body[data-theme='dark'] .content.stream-map-view {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+.is-authenticated [class*="helpjet-"],
+.is-authenticated [id*="helpjet-"] {
+  visibility: visible;
+}
+
+body:not(.is-authenticated) [class*="helpjet-"],
+body:not(.is-authenticated) [id*="helpjet-"],
+body:not(.is-authenticated) iframe[title*="chat"],
+body:not(.is-authenticated) iframe[aria-label*="chat"] {
+  display: none !important;
+}
+
+.resources-link-button {
+  position: fixed;
+  right: 22px;
+  bottom: 108px;
+  z-index: 9998;
+  display: none;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.is-authenticated .resources-link-button {
+  display: block;
+}
+
+.resources-link-button:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 11px 22px rgba(0, 0, 0, 0.34));
+}
+
+.resources-link-button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.resources-link-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 520px) {
+  .resources-link-button {
+    right: 14px;
+    bottom: 96px;
+    width: 52px;
+    height: 52px;
   }
 }
